@@ -1,14 +1,14 @@
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.7.0"
     id("com.github.johnrengelman.shadow") version "7.1.0"
     id("org.jetbrains.dokka") version "1.5.0"
     `maven-publish`
 }
 
 group = "kr.kro.minestar"
-version = "1.0.1"
+version = "1.0.0"
 
-val plugins = File("C:\\Users\\MineStar\\Desktop\\MC Server folder\\libs")
+val copyPath = File("C:\\Users\\MineStar\\Desktop\\MC Server folder\\libs")
 
 
 repositories {
@@ -22,15 +22,8 @@ repositories {
 
 dependencies {
     compileOnly(kotlin("stdlib"))
-    compileOnly("net.kyori:adventure-api:4.10.1")
-    compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
-
-    compileOnly("com.arcaniax:HeadDatabase-API:1.3.1")
-
-    //project_TL
-
-
     //MineStar
+
 }
 
 java {
@@ -69,7 +62,7 @@ tasks {
             // jar file copy
             copy {
                 from(archiveFile)
-                into(if (File(plugins, archiveFileName.get()).exists()) plugins else plugins)
+                into(if (File(copyPath, archiveFileName.get()).exists()) copyPath else copyPath)
             }
         }
     }

@@ -1,1 +1,1 @@
-rootProject.name = "Utility-API"
+rootProject.name = "Kotlin-Utility-API"
